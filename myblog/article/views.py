@@ -5,7 +5,7 @@ from django.views import View
 
 class ArticleView(View):
     def get(self, request):
-        return HttpResponse("result")
+        return render(request, "article/list.html")
 
     def post(self, request):
         return HttpResponse("POST方法")
