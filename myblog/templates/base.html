@@ -9,8 +9,14 @@
     </title>
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
 
-</head>}
+</head>
 <body>
+    {% include 'header.html' %}
+    {% block content %}{% endblock content%}
 
+    {% include 'footer.html' %}
+
+    <script src="{% static 'jquery/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
 </body>
 </html>
