@@ -3,3 +3,30 @@
 
 {% block title %}
 {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-9 mt-lg-4">
+                {% for article in articles %}
+                    <div class="card mb-2 hvr-underline-from-left" style="display: flex">
+                        <div class="row no-gutters align-items-center">
+                            <div class="card-body">
+                                <h4 class="mt-0">
+                                    <a style="font-weight: bold; color: black;"
+                                       class="hvr-forward no-underline">
+                                        {{ article.title }}
+                                    </a>
+                                    <div class="mb-2 ">
+                                    </div>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}

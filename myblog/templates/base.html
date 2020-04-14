@@ -8,7 +8,16 @@
         {% endblock %}
     </title>
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/hover.css@2.3.1/css/hover.min.css" rel="stylesheet">
+    <style>
+        .no-underline {
+    vertical-align: inherit;
+}
 
+.no-underline:hover {
+    text-decoration: none;
+}
+    </style>
 </head>
 <body>
     {% include 'header.html' %}
