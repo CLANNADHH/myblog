@@ -12,6 +12,7 @@ class BlogListView(ListView):
     context_object_name = 'articles'
     # 分页
     paginate_by = 1
+    page_obj = 1
     model = ArticlePost
 
 

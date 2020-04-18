@@ -137,11 +137,11 @@ CKEDITOR_UPLOAD_PATH = "article_images"
 CKEDITOR_CONFIGS = {
     # django-ckeditor默认使用default配置
     'default': {
-        'skin': 'office2013',
+        # 'skin': 'office2013',
         # 编辑器宽度自适应
-        'width':'auto',
-        'height':'300',
-        'htmlEscape':"false",
+        'width': 'auto',
+        'height': '300',
+        'htmlEscape': "false",
         # tab键转换空格数
         'tabSpaces': 4,
         # 工具栏风格

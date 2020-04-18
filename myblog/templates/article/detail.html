@@ -5,15 +5,26 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <h1 class="col-12 mt-4">{{ article.title }}</h1>
-            <div class="col-12 ">
-                作者: {{ article.author|safe }}
-            </div>
-            <div class="col-12">
-                {{ article.body |safe}}
+        <div class="container">
+            <div class="row mt-md-4 mt-lg-4">
+                <div class="card">
+                    <div class="card-body card-my">
+                        <h1 class="col-xs-12 col-sm-12 col-md-12 col-lg-12">{{ article.title }}</h1>
+                        <div class="col-12 ">
+                            <p class="text-gray">
+                                {{ article.total_views }}阅读 ·
+                                {{ article.updated }} 更新
+                                作者：{{ article.author }}
+                            </p>
+                        </div>
+                        <hr/>
+                        <div class="col-12">
+                            {{ article.body |safe}}
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
-    </div>
+
 {% endblock %}
