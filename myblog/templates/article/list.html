@@ -7,7 +7,7 @@
 {% block content %}
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-lg-8 mt-lg-4">
+            <div class="col-md-8 col-lg-8 col-sm-8 mt-lg-4">
                 {% for article in articles %}
                     <div class="card mb-2 hvr-underline-from-left" style="display: flex">
                         <div class="row no-gutters align-items-center">
@@ -39,7 +39,7 @@
                     </div>
 
                 {% endfor %}
-                <div class="col-lg-8 col-md-8 row justify-content-center" >
+                <div class="col-lg-8 col-md-8  col-sm-8 row justify-content-center" >
                     <ul class="pagination">
                         {% if page_obj.has_previous %}
                             <li class="page-item">
@@ -78,9 +78,9 @@
                 </div>
             </div>
 
-            <div class="col-md-4 col-lg-4">
+            <div class="col-md-4 col-lg-4 col-sm-4">
                 <div class="card card-my">
-                     <img src="https://s1.ax1x.com/2020/04/18/JmiaJx.th.jpg" alt="欢迎来到我的博客"
+                     <img src="https://clannadhh.oss-cn-shenzhen.aliyuncs.com/static/image/30262313.jpg" alt="欢迎来到我的博客"
                         class="card-img-top img-thumbnail"
                         style="width: 10rem; height: 10rem; margin-left: 20%; margin-top: 1rem; border-radius: 10rem;"
                      />

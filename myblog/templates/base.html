@@ -3,26 +3,34 @@
 <html lang="zh-cn">
 <head>
     <meta charset="utf-8">
+{#    <meta name="referrer" content="no-referrer">#}
+{#    <meta http-equiv="X-UA-Compatible" content="IE=edge">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1">#}
     <title>
         {% block title %}
         {% endblock %}
     </title>
+    <script src="https://cdn.bootcss.com/jquery/3.5.0/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+{#    <script src="{% static 'prism/js/prism.min.js' %}"></script>#}
+    <script src="https://clannadhh.oss-cn-shenzhen.aliyuncs.com/static/js/prism/prism.min.js"></script>
+
+{#    <script src="https://cdn.bootcss.com/prism/9000.0.1/components/prism-powershell.min.js"></script>#}
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
-    <link href="https://cdn.jsdelivr.net/npm/hover.css@2.3.1/css/hover.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/hover.css/2.3.1/css/hover-min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'customize/css/index.css' %}">
-    <link rel="stylesheet"
-        href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-        crossorigin="anonymous"
-    >
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/5.13.0/css/all.css" rel="stylesheet">
+
+
+    <link href="https://cdn.bootcss.com/prism/9000.0.1/themes/prism-okaidia.min.css" rel="stylesheet">
 </head>
 <body>
-    {% include 'header.html' %}
-    {% block content %}{% endblock content%}
+{% include 'header.html' %}
+{% block content %}{% endblock content%}
 
-    {% include 'footer.html' %}
+{% include 'footer.html' %}
 
-    <script src="{% static 'jquery/jquery-3.4.1.min.js' %}"></script>
-    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+
 </body>
 </html>
