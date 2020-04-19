@@ -17,7 +17,7 @@
 
 <!-- 定义导航栏 -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand " href="#" style="font-size: 1.5rem;">
+    <a class="navbar-brand" href="{% url 'article:article_list' %}" style="font-size: 1.5rem;">
         CLANNADHH
     </a>
     <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -35,7 +35,7 @@
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link text-white" target="_blank"
-                    href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=clannadhh@163.com">
+                   href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=clannadhh@163.com">
                     联系博主
                 </a>
             </li>
@@ -43,12 +43,13 @@
         <ul class="navbar-nav ml-md-auto">
             {% if user.is_authenticated %}
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="nav-user" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      {{ user.username }}
+                    <a class="nav-link dropdown-toggle  text-white" href="#" id="nav-user" role="button" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        {{ user.username }}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="nav-user">
-                        <a class="dropdown-item" href="#">写文章</a>
-                        <a class="dropdown-item" href="#">退出登录</a>
+                        <a class="dropdown-item" href="{% url 'article:create' %}">写文章</a>
+                        <a class="dropdown-item" href="{% url 'userprofile:logout' %}">退出登录</a>
                     </div>
                 </li>
             {% else %}

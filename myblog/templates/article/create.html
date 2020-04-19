@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block 发表文章 %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row mt-md-4 mt-lg-4">
+            <div class="card col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="form-group " hidden="hidden">
+                            <label for="author"></label>
+                            <input type="text" class="form-control" id="author" name="author" autocomplete="off"
+                                value="{{ user.id }}">
+                        </div>
+                        <!-- 标题 -->
+                        <div class="form-group col-auto">
+                            <label for="title"></label>
+                            <input type="text" class="form-control" id="title" name="title" autocomplete="off"
+                                   placeholder="请输入文章标题">
+                            <p class="text-danger">
+                                {{ form.errors.title.0 }}
+                            </p>
+                        </div>
+                        <!-- 正文 -->
+                        <div class="form-group col-auto">
+                            <label for="body"></label>
+                            {{ form.media }}
+                            {{ form.body }}
+                            <p class="text-danger">
+                                {{ form.errors.body.0 }}
+                            </p>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-outline-primary" >发布文章</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

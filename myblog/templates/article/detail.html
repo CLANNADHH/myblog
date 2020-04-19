@@ -15,11 +15,10 @@
                                 {{ article.total_views }} 阅读 ·
                                 {{ article.updated }} 更新  ·
                                 作者：{{ article.author }}
-
                             </p>
                             {% if user.is_authenticated %}
                                 <div class="ml-5">
-                                    <a class="text-primary" href="#">
+                                    <a class="text-primary" href="{% url 'article:update' article.id %}">
                                         修改文章
                                     </a>
                                 </div>
