@@ -1,4 +1,4 @@
-<footer class="py-lg-0 bg-dark fixed-bottom">
+<footer class="bg-dark fixed-bottom" id="copyright">
     <div class="container">
         <p class="m-0 text-center text-white">Copyright &copy;clannadhh 2020</p>
         <p  class="m-0 text-center text-white">
@@ -6,3 +6,14 @@
         </p>
     </div>
 </footer>
+
+<script>
+    $(function(){
+      if($(window).height() >= $(document).height()){
+        $("#copyright").addClass("fixed-bottom");
+      }
+      else{
+        $("#copyright").removeClass("fixed-bottom");
+      }
+    })
+</script>

@@ -5,64 +5,111 @@
 {% endblock %}
 
 {% block content %}
-        <div class="container">
-            <div class="row mt-md-4 mt-lg-4">
-                <div class="card col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="card-body card-my">
-                        <h1 class="col-xs-12 col-sm-12 col-md-12 col-lg-12">{{ article.title }}</h1>
-                        <div class="row col-12"  style="font-size: 1.2rem;">
-                            <p class="text-gray">
-                                {{ article.total_views }} 阅读 ·
-                                {{ article.updated }} 更新  ·
-                                作者：{{ article.author }}
-                            </p>
-                            {% if user.is_authenticated %}
-                                <div class="ml-3">
+    <div class="container">
+        <div class="row mt-md-4 mt-lg-4">
+            <div class="card col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="card-body card-my">
+                    <h1 class="col-xs-12 col-sm-12 col-md-12 col-lg-12">{{ article.title }}</h1>
+                    <div class="row col-12" style="font-size: 1.2rem;">
+                        <p class="text-gray">
+                            {{ article.total_views }} 阅读 ·
+                            {{ article.updated }} 更新 ·
+                            作者：{{ article.author }}
+                        </p>
+                        {% if user.is_authenticated %}
+                            <div class="ml-3">
                                 <button class="btn btn-outline-primary">
                                     <a class="no-underline" href="{% url 'article:update' article.id %}">
                                         修改文章
                                     </a>
                                 </button>
-
-                                </div>
-                                <div class="ml-3">
-                                    <button class="btn btn-outline-primary">
-                                        <a class="no-underline" href="#" onclick="confirm_delete_article()">
-                                            删除文章
-                                        </a>
-                                    </button>
-                                </div>
-                                <form
-                                      hidden="hidden"
-                                      action="{% url 'article:delete' article.id %}"
-                                      method="post"
-                                      >
-                                    {% csrf_token %}
-                                    <button id="delete_article" type="submit">发送</button>
-                                </form>
-                            {% endif %}
+                            </div>
+                            <div class="ml-3">
+                                <button class="btn btn-outline-primary">
+                                    <a class="no-underline" href="#" onclick="confirm_delete_article()">
+                                        删除文章
+                                    </a>
+                                </button>
+                            </div>
+                            <form
+                                    hidden="hidden"
+                                    action="{% url 'article:delete' article.id %}"
+                                    method="post"
+                            >
+                                {% csrf_token %}
+                                <button id="delete_article" type="submit">发送</button>
+                            </form>
+                        {% endif %}
+                    </div>
+                    <hr/>
+                    <div class="col-12">
+                        {{ article.body |safe }}
+                    </div>
+                    <div class="row clearfix" id="money" style="display: none;">
+                        <div class="col-6">
+                            <h2 class="card-title">微信</h2>
+                            <img src="https://clannadhh.oss-cn-shenzhen.aliyuncs.com/static/image/money/wechat_pay.jpg"
+                                 class="card-img-top img-thumbnail img-fluid"
+                                 style="width: 23rem; height: 23rem; margin-top: 1rem; border-radius: 1rem;">
                         </div>
-                        <hr/>
-                        <div class="col-12">
-                            {{ article.body |safe}}
+                        <div class="col-6">
+                            <img src="https://clannadhh.oss-cn-shenzhen.aliyuncs.com/static/image/money/wechat_pay.jpg"
+                                 class="card-img-top img-thumbnail img-fluid"
+                                 style="width: 23rem; height: 23rem; margin-top: 1rem; border-radius: 1rem;">
                         </div>
                     </div>
-                </div>
+                    <div id="payModal" class="modal fade" style="margin-top: 5rem; display: none;" aria-modal="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">赞助作者</h4>
+                                    <button type="button" data-dismiss="modal" class="close">×</button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row clearfix" style="text-align: center;">
+                                        <div class="col-6"><h2 class="card-title">微信</h2> <img
+                                                src="https://clannadhh.oss-cn-shenzhen.aliyuncs.com/static/image/money/wechat_pay.jpg"
+                                                class="card-img-top img-thumbnail img-fluid"
+                                                style="width: 25rem; height: 25rem; margin-top: 1rem; border-radius: 1rem;">
+                                        </div>
+                                        <div class="col-6">
+                                            <h2 class="card-title">支付宝</h2>
+                                            <img
+                                                    src="https://clannadhh.oss-cn-shenzhen.aliyuncs.com/static/image/money/ali_pay.jpg"
+                                                    class="card-img-top img-thumbnail img-fluid"
+                                                    style="width: 25rem; height: 25rem; margin-top: 1rem; border-radius: 1rem;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
+                </div>
+                <hr/>
+                <div class="row justify-content-center mb-3">
+                    <button type="button" data-toggle="modal" data-target="#payModal" class="btn btn-outline-success">
+                        <i class="fa fa-gift"></i>
+                        打赏作者
+                    </button>
+                </div>
             </div>
+
         </div>
+    </div>
     <script>
         function confirm_delete_article() {
             layer.open({
                 title: "确认删除",
-                content:"您真的确认要删除该文章吗？o(╥﹏╥)o",
-                yes:function (index, layero) {
+                content: "您真的确认要删除该文章吗？o(╥﹏╥)o",
+                yes: function (index, layero) {
                     $("#delete_article").click();
                     layer.close(index);
                 }
 
             })
         }
+
     </script>
 {% endblock %}
 
