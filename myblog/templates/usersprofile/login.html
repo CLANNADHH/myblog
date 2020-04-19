@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}
+    登录
+{% endblock %}
+
+{% block content %}
+    <div class="container ">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-4">
+
+            </div>
+            <div class="col-auto">
+                <br>
+
+                <form method="post" action=".">
+                    {% csrf_token %}
+                    <!-- 账号 -->
+                    <div class="form-group">
+                        <label for="username">用户名</label>
+                        <input type="text" class="form-control" id="username" name="username" autocomplete="off">
+                        <p class="text-danger">
+                            <span class="fas fa-exclamation-triangle"></span>
+                            {{ form.errors.username.0 }}
+                        </p>
+                    </div>
+                    <!-- 密码 -->
+                    <div class="form-group">
+                        <label for="password">密码</label>
+                        <input type="password" class="form-control" id="password" name="password" autocomplete="off">
+                        <p class="text-danger">
+                            <span class="fas fa-exclamation-triangle"></span>
+                            {{ form.errors.password.0 }}
+                        </p>
+                    </div>
+                    <p class="text-danger">
+                        {{ form.non_field_errors.0 }}
+                    </p>
+                    <div class="form-group" style="display: none">
+                        <label for="next">首页</label>
+                        <input type="text" class="form-control" id="next" name="next" value="{% url 'article:article_list' %}">
+                    </div>
+                    <!-- 提交按钮 -->
+                    <button type="submit" class="btn btn-primary" >提交</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

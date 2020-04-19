@@ -6,8 +6,8 @@
 
 {% block content %}
     <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-lg-8 col-sm-8 mt-lg-4">
+        <div class="row mt-4">
+            <div class="col-md-8 col-lg-8 col-sm-8">
                 {% for article in articles %}
                     <div class="card mb-2 hvr-underline-from-left" style="display: flex">
                         <div class="row no-gutters align-items-center">
@@ -39,7 +39,7 @@
                     </div>
 
                 {% endfor %}
-                <div class="col-lg-8 col-md-8  col-sm-8 row justify-content-center" >
+                <div class="row justify-content-center" >
                     <ul class="pagination">
                         {% if page_obj.has_previous %}
                             <li class="page-item">

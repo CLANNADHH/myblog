@@ -11,9 +11,15 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-
+import sys
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# 统一app放在apps
+sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -28,6 +34,8 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 
+LOGIN_REDIRECT_URL = '/article/'
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -40,7 +48,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'article',
     'ckeditor',
-    'ckeditor_uploader'
+    'ckeditor_uploader',
+    'userprofile',
 ]
 
 MIDDLEWARE = [
