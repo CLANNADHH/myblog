@@ -17,11 +17,29 @@
                                 作者：{{ article.author }}
                             </p>
                             {% if user.is_authenticated %}
-                                <div class="ml-5">
-                                    <a class="text-primary" href="{% url 'article:update' article.id %}">
+                                <div class="ml-3">
+                                <button class="btn btn-outline-primary">
+                                    <a class="no-underline" href="{% url 'article:update' article.id %}">
                                         修改文章
                                     </a>
+                                </button>
+
                                 </div>
+                                <div class="ml-3">
+                                    <button class="btn btn-outline-primary">
+                                        <a class="no-underline" href="#" onclick="confirm_delete_article()">
+                                            删除文章
+                                        </a>
+                                    </button>
+                                </div>
+                                <form
+                                      hidden="hidden"
+                                      action="{% url 'article:delete' article.id %}"
+                                      method="post"
+                                      >
+                                    {% csrf_token %}
+                                    <button id="delete_article" type="submit">发送</button>
+                                </form>
                             {% endif %}
                         </div>
                         <hr/>
@@ -33,5 +51,18 @@
 
             </div>
         </div>
+    <script>
+        function confirm_delete_article() {
+            layer.open({
+                title: "确认删除",
+                content:"您真的确认要删除该文章吗？o(╥﹏╥)o",
+                yes:function (index, layero) {
+                    $("#delete_article").click();
+                    layer.close(index);
+                }
 
+            })
+        }
+    </script>
 {% endblock %}
+
