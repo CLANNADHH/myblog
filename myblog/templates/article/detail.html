@@ -10,12 +10,20 @@
                 <div class="card col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="card-body card-my">
                         <h1 class="col-xs-12 col-sm-12 col-md-12 col-lg-12">{{ article.title }}</h1>
-                        <div class="col-12 ">
+                        <div class="row col-12"  style="font-size: 1.2rem;">
                             <p class="text-gray">
-                                {{ article.total_views }}阅读 ·
-                                {{ article.updated }} 更新
+                                {{ article.total_views }} 阅读 ·
+                                {{ article.updated }} 更新  ·
                                 作者：{{ article.author }}
+
                             </p>
+                            {% if user.is_authenticated %}
+                                <div class="ml-5">
+                                    <a class="text-primary" href="#">
+                                        修改文章
+                                    </a>
+                                </div>
+                            {% endif %}
                         </div>
                         <hr/>
                         <div class="col-12">

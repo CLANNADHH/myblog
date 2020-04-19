@@ -12,7 +12,6 @@
                     <div class="card mb-2 hvr-underline-from-left" style="display: flex">
                         <div class="row no-gutters align-items-center">
                             <div class="card-body mt-0">
-
                                 <a style="font-weight: bold; color: black; font-size: 24px;"
                                    class="hvr-forward no-underline"
                                    href="{% url 'article:detail' article.id %}"
@@ -37,14 +36,13 @@
                             </div>
                         </div>
                     </div>
-
                 {% endfor %}
                 <div class="row justify-content-center" >
                     <ul class="pagination">
                         {% if page_obj.has_previous %}
                             <li class="page-item">
                                 <a class="page-link"
-                                   href="{% url 'article:article' %}?page={{ page_obj.previous_page_number }}">
+                                   href="{% url 'article:article_list' %}?page={{ page_obj.previous_page_number }}">
                                     <i class="fas fa-angle-left text-primary"></i>
                                 </a>
                             </li>
@@ -55,7 +53,8 @@
                                 </a>
                             </li>
                         {% endif %}
-                        <li class="page-item active">
+
+                        <li class="page-item active ml-2 mr-2">
                             <a class="page-link" href="#">
                                 {{ page_obj.number }}
                             </a>
@@ -63,7 +62,7 @@
                         {% if page_obj.has_next %}
                             <li class="page-item">
                                 <a class="page-link"
-                                   href="{% url 'article:article' %}?page={{ page_obj.next_page_number }}">
+                                   href="{% url 'article:article_list' %}?page={{ page_obj.next_page_number }}">
                                      <i class="fas fa-angle-right  text-primary"></i>
                                 </a>
                             </li>
@@ -99,7 +98,7 @@
                         <h4 class="card-header">
                             广告位招租
                         </h4>
-                        <p class="card-text">
+                        <p class="card-text mt-1">
                             (⊙o⊙)…
                         </p>
                     </div>
@@ -110,7 +109,7 @@
                         <h4 class="card-header">
                             友情链接
                         </h4>
-                        <p class="card-text">
+                        <p class="card-text  mt-1">
                             欢迎入驻
                         </p>
                     </div>
