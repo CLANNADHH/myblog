@@ -2,6 +2,7 @@
 {% load staticfiles %}
 
 {% block title %}
+    CLANNADHH
 {% endblock %}
 
 {% block content %}
@@ -18,18 +19,18 @@
                         </p>
                         {% if user.is_authenticated %}
                             <div class="ml-3">
-                                <button class="btn btn-outline-primary">
-                                    <a class="no-underline" href="{% url 'article:update' article.id %}">
+{#                                <button class="btn btn-outline-primary" onclick="{% url 'article:update' article.id %}">#}
+                                    <a class="btn btn-outline-primary no-underline" href="{% url 'article:update' article.id %}">
                                         修改文章
                                     </a>
-                                </button>
+{#                                </button>#}
                             </div>
                             <div class="ml-3">
-                                <button class="btn btn-outline-primary">
-                                    <a class="no-underline" href="#" onclick="confirm_delete_article()">
+{#                                <button class="btn btn-outline-primary">#}
+                                    <a class="btn btn-outline-primary no-underline" href="#" onclick="confirm_delete_article()">
                                         删除文章
                                     </a>
-                                </button>
+{#                                </button>#}
                             </div>
                             <form
                                     hidden="hidden"

@@ -21,7 +21,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
@@ -33,6 +32,16 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_METHODS = (
+ 'DELETE',
+ 'GET',
+ 'OPTIONS',
+ 'PATCH',
+ 'POST',
+ 'PUT',
+)
 
 LOGIN_REDIRECT_URL = '/article/'
 
@@ -50,6 +59,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'userprofile',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -60,6 +70,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'myblog.urls'
@@ -139,7 +150,7 @@ STATICFILES_DIRS = (
 # ckeditor配置项
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-CKEDITOR_UPLOAD_PATH = "article_images"
+CKEDITOR_UPLOAD_PATH = "article/upload_image/"
 
 
 
@@ -181,6 +192,16 @@ CKEDITOR_CONFIGS = {
             'uploadimage',
             'hkemoji',
         ]),
+        'filebrowserImageUploadUrl': 'http://127.0.0.1:8000/article/upload_image',
+        'removeDialogTabs': 'image:advanced;image:Link',
+        'image_previewText': ' ',
     }
 }
 
+
+# 阿里OSS配置
+OSS_KEY = ""  # 阿里云Accesskey
+OSS_SECRET = ""  # 阿里云Secret
+OSS_NODE = ""  # OSS节点地址
+OSS_DIR = ""  # 存储目录
+OSS_BUCKET = ""  # bucket名称
